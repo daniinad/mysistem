@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pelanggan;
+use App\Bahan;
 
-class BarangsController extends Controller
+class BahanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,8 @@ class BarangsController extends Controller
      */
     public function index()
     {
-        //
+        $bahan = Bahan::all();
+        return view ('bahan.index',compact('bahan','pelanggan'));
     }
 
     /**
@@ -23,7 +26,7 @@ class BarangsController extends Controller
      */
     public function create()
     {
-        //
+        return view('bahan.create');
     }
 
     /**
@@ -34,7 +37,13 @@ class BarangsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $bahan = new Bahan;
+        $bahan->nama = $request->nama;
+        $bahan->merk = $request->merk;
+        $bahan->ukuran = $request->ukuran;
+        $bahan->harga = $request->harga;
+        $bahan->save();
+        return redirect('bahan');
     }
 
     /**
@@ -45,7 +54,9 @@ class BarangsController extends Controller
      */
     public function show($id)
     {
-        //
+        $bahan = Bahan::findOrFail($id);
+          $pelanggan = Pelanggan::all();
+        return view ('bahan.show',compact('bahan','pelanggan'));
     }
 
     /**
@@ -56,7 +67,8 @@ class BarangsController extends Controller
      */
     public function edit($id)
     {
-        //
+         $bahan = Bahan::findOrFail($id);
+        return view ('bahan.edit',compact('bahan'));
     }
 
     /**
@@ -68,7 +80,13 @@ class BarangsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $bahan = Bahan::findOrFail($id);
+        $bahan->nama = $request->nama;
+        $bahan->merk = $request->merk;
+        $bahan->ukuran = $request->ukuran;
+        $bahan->harga = $request->harga;
+        $bahan->save();
+        return redirect('bahan');
     }
 
     /**
@@ -79,6 +97,8 @@ class BarangsController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $bahan = Bahan::findOrFail($id);
+        $bahan->delete();
+        return redirect('bahan');
     }
 }

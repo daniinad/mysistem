@@ -40,6 +40,8 @@
                     <ul class="nav navbar-nav">
                         @if (Auth::check())
                         <li><a href="{{ url('/home')}}">Dashboard</a></li>
+                        <li><a href="{{ route('bahan.index')}}">Bahan</a></li>
+                        <li><a href="{{ route('pelanggan.index')}}">Pelanggan</a></li>
                         @endif
                     </ul>
 

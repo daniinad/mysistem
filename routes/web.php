@@ -18,6 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
-	Route::resource('barangs','BarangsController');
-});
+
+Route::resource('bahan','BahanController');
+Route::resource('pelanggan','PelangganController');
