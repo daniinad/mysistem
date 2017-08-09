@@ -3,11 +3,11 @@
 
 <div class="container">
 <div class="row">
-    <center><h1>Data Bahan</h1></center>
+    <center><h1>Data Pelanggan</h1></center>
     <div class="panel panel-primary">
-        <div class="panel-heading">Data Bahan
+        <div class="panel-heading">Data Pelanggan
         <div class="panel-title pull pull-right">
-            <a href="bahan/create">Tambah Data</a></div>
+            <a href="pelanggan/create">Tambah Data</a></div>
             </div>
 
             <div class="panel-body">
@@ -15,27 +15,28 @@
                     <thead>
                         <tr>
                             <th>Nama</th>
-                            <th>Merk</th>
-                            <th>Ukuran</th>
-                            <th>Harga</th>
+                            <th>Alamat</th>
+                            <th>no_hp</th>
+                            <th>Barang Yang Dibeli</th>
                             <th>Gambar</th>
                             <th colspan="2">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($bahan as $data)
+                        @foreach($pelanggan as $data)
                         <tr>
                             <td>{{$data->nama}}</td>
-                            <td>{{$data->merk}}</td>
-                            <td>{{$data->ukuran}}</td>
-                            <td>{{$data->harga}}</td>
+                            <td>{{$data->alamat}}</td>
+                            <td>{{$data->no_hp}}</td>
+                            <td>{{$data->bahan->nama}}</td>
+                            <td>{{$data->bahan->gambar}}</td>
 
                            <td><img src="{{asset('/img/'.$data->gambar.'')}}" height="100px" width="100px"></td>
                     
                             <td>
-                                <a class="btn btn-warning" href="bahan/{{$data->id}}/edit">Edit</a></td>
+                                <a class="btn btn-warning" href="pelanggan/{{$data->id}}/edit">Edit</a></td>
                             <td>
-                                <form action="{{route('bahan.destroy',$data->id)}}" method="post">
+                                <form action="{{route('pelanggan.destroy',$data->id)}}" method="post">
 
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="_token">

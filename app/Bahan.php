@@ -6,15 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bahan extends Model
 {
-    protected $fillable = ['nama','merk','ukuran','harga'];
+	protected $table="bahans";
+    protected $fillable = ['nama','merk','ukuran','harga','gambar'];
+    protected $visible = ['nama','merk','ukuran','harga','gambar'];
+    public $timestamps = true;
 
-    public function pelanggans() 
+    public function pelanggan() 
     {
-    	return $this->belongToMany('App\Pelanggans');
+    	return $this->belongToMany('App\Pelanggan','id_bahan');
     }
 
-     public function transakses() 
+     public function transaksis() 
     {
-    	return $this->belongToMany('App\Transaksis');
+    	return $this->belongToMany('App\Transaksis','id_bahan','id_pelanggan');
     }
 }

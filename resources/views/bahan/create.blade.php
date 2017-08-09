@@ -10,7 +10,7 @@
 			</div>
 
 			<div class="panel-body">
-				<form action="{{route('bahan.store')}}" method="post">
+				<form action="{{route('bahan.store')}}" method="post" enctype="multipart/form-data">
 					{{csrf_field()}}
 					<div class="form-group">
 						<label class="control-lable">Nama</label>
@@ -33,8 +33,8 @@
 					</div>
 
 					<div class="form-group">
-						<label class="control-lable">Cover</label>
-						<input type="file" name="cgambar" required>
+						<label class="control-lable">Gambar</label>
+						<input type="file" name="gambar" class="form-control" required>
 					</div>
 
 					<div class="form-group">

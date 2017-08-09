@@ -10,7 +10,7 @@
 			</div>
 
 			<div class="panel-body">
-			<form action="{{route('bahan.update',$bahan->id)}}" method="POST">
+			<form action="{{route('bahan.update',$bahan->id)}}" method="POST" enctype="multipart/form-data">
 			<input type="hidden" name="_method" value="PUT">	
 			<input type="hidden" name="_token" value="{{csrf_token() }}">
 
@@ -36,7 +36,7 @@
 
 					<div class="form-group">
 						<label class="control-lable">Gambar</label>
-						<input type="file" name="gambar" value="{{$bahan->gambar}}" required>
+						<input type="file" name="gambar" class="form-control" value="{{$bahan->gambar}}" required>
 					</div>
 
 					<div class="form-group">

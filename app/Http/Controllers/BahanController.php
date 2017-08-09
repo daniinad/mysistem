@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Pelanggan;
 use App\Bahan;
+use Illuminate\Http\Request;
 
 class BahanController extends Controller
 {
@@ -16,7 +16,7 @@ class BahanController extends Controller
     public function index()
     {
         $bahan = Bahan::all();
-        return view ('bahan.index',compact('bahan','pelanggan'));
+        return view ('bahan.index',compact('bahan'));
     }
 
     /**
@@ -26,7 +26,9 @@ class BahanController extends Controller
      */
     public function create()
     {
-        return view('bahan.create');
+        $bahan= Bahan::all();
+        $pelanggan= Pelanggan::all();
+        return view('bahan.create',compact('bahan','pelanggan'));
     }
 
     /**
@@ -42,6 +44,18 @@ class BahanController extends Controller
         $bahan->merk = $request->merk;
         $bahan->ukuran = $request->ukuran;
         $bahan->harga = $request->harga;
+
+      
+        if ($request->hasFile('gambar')){
+            $bahans = $request->file('gambar');
+            $extension = $bahans->getClientOriginalExtension();
+            $filename = str_random(6). '.' . $extension;
+            $destinationPath = public_path() .
+                DIRECTORY_SEPARATOR . 'img';
+                $bahans->move($destinationPath, $filename);
+                $bahan->gambar = $filename;
+        }
+
         $bahan->save();
         return redirect('bahan');
     }
@@ -54,9 +68,7 @@ class BahanController extends Controller
      */
     public function show($id)
     {
-        $bahan = Bahan::findOrFail($id);
-          $pelanggan = Pelanggan::all();
-        return view ('bahan.show',compact('bahan','pelanggan'));
+    
     }
 
     /**
@@ -68,7 +80,8 @@ class BahanController extends Controller
     public function edit($id)
     {
          $bahan = Bahan::findOrFail($id);
-        return view ('bahan.edit',compact('bahan'));
+         $pelanggan = Pelanggan::all();
+        return view('bahan.edit',compact('bahan','pelanggan'));
     }
 
     /**
@@ -85,6 +98,17 @@ class BahanController extends Controller
         $bahan->merk = $request->merk;
         $bahan->ukuran = $request->ukuran;
         $bahan->harga = $request->harga;
+
+        if ($request->hasFile('gambar')){
+            $bahans = $request->file('gambar');
+            $extension = $bahans->getClientOriginalExtension();
+            $filename = str_random(6). '.' . $extension;
+            $destinationPath = public_path() .
+                DIRECTORY_SEPARATOR . 'img';
+                $bahans->move($destinationPath, $filename);
+                $bahan->gambar = $filename;
+        }
+
         $bahan->save();
         return redirect('bahan');
     }

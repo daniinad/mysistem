@@ -6,16 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaksis extends Model
 {
-    protected $fillable = ['id_bahan','id_pembeli'];
+    protected $table="transakses";
+	protected $fillable = ['id_bahan','id_pelanggan'];
+	protected $visible = ['id_bahan','id_pelanggan'];
+	public $timestamps = true;
 
-    public function pelanggans() 
+    public function pelanggan() 
     {
-    	return $this->belongToMany('App\Pelanggans');
+    	return $this->belongToMany('App\Pelanggan','id_pelanggan');
     }
 
-    public function bahans() 
+    public function bahan() 
     {
-    	return $this->belongToMany('App\Bahan');
+    	return $this->belongToMany('App\Bahan','id_bahan');
     }
 
 }
