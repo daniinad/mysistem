@@ -1,8 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.mastah')
 @section('content')
 
 <div class="container">
 <div class="row">
+  <div class="col-md-10 col-md-offset-2">
     <center><h1>Data Bahan</h1></center>
     <div class="panel panel-primary">
         <div class="panel-heading">Data Bahan
@@ -48,6 +49,7 @@
                     </tbody>
                 </table>
             </div>
+    </div>
     </div>
 </div>
 </div>

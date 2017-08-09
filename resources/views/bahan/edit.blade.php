@@ -36,7 +36,7 @@
 
 					<div class="form-group">
 						<label class="control-lable">Gambar</label>
-						<input type="file" name="gambar" class="form-control" value="{{$bahan->gambar}}" required>
+						<input type="file" name="gambar" value="{{$bahan->gambar}}" required>
 					</div>
 
 					<div class="form-group">

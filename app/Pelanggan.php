@@ -12,13 +12,10 @@ class Pelanggan extends Model
 	public $timestamps = true;
      
 
-    public function bahan() 
+    public function bahans() 
     {
-    	return $this->belongToMany('App\Bahan','id_bahan');
+        return $this->hasMay('App\Bahan');
     }
 
-     public function transaksis() 
-    {
-    	return $this->belongToMany('App\Transaksis','id_bahan','id_pelanggan');
-    }
+    
 }

@@ -34,7 +34,7 @@
 
 					<div class="form-group">
 						<label class="control-lable">Gambar</label>
-						<input type="file" name="gambar" class="form-control" required>
+						<input type="file" name="gambar" required>
 					</div>
 
 					<div class="form-group">

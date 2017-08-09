@@ -11,13 +11,10 @@ class Bahan extends Model
     protected $visible = ['nama','merk','ukuran','harga','gambar'];
     public $timestamps = true;
 
-    public function pelanggan() 
+    public function pelanggans() 
     {
-    	return $this->belongToMany('App\Pelanggan','id_bahan');
+    	return $this->belongTo('App\Pelanggan','id_bahan');
     }
 
-     public function transaksis() 
-    {
-    	return $this->belongToMany('App\Transaksis','id_bahan','id_pelanggan');
-    }
+    
 }

@@ -16,7 +16,7 @@ class PelangganController extends Controller
     public function index()
     {
         $pelanggan = Pelanggan::with('bahan')->get();
-        return view ('pelanggan.index',compact('pelanggan','book'));
+        return view ('pelanggan.index',compact('pelanggan','bahan'));
     }
 
     /**
