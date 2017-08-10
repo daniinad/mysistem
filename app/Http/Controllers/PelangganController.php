@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Pelanggan;
-use App\Bahan;
+use App\Pelanggann;
+use App\Bahann;
 use Illuminate\Http\Request;
 
 class PelangganController extends Controller
@@ -15,7 +15,7 @@ class PelangganController extends Controller
      */
     public function index()
     {
-        $pelanggan = Pelanggan::with('bahan')->get();
+        $pelanggan = Pelanggann::with('bahans')->get();
         return view ('pelanggan.index',compact('pelanggan','bahan'));
     }
 
@@ -26,7 +26,7 @@ class PelangganController extends Controller
      */
     public function create()
     {
-        //
+        return view('pelanggan.create');
     }
 
     /**
@@ -37,7 +37,12 @@ class PelangganController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pelanggan = new Pelanggann;
+        $pelanggan->nama = $request->nama;
+        $pelanggan->alamat = $request->alamat;
+        $pelanggan->no_hp = $request->no;
+        $pelanggan->save();
+        return redirect('pelanggan');
     }
 
     /**
@@ -59,7 +64,8 @@ class PelangganController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pelanggan = Pelanggann::findOrFail($id);
+        return view ('pelanggan.edit',compact('pelanggan'));
     }
 
     /**
@@ -71,7 +77,12 @@ class PelangganController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pelanggan = Pelanggann::findOrFail($id);
+        $pelanggan->nama = $request->nama;
+        $pelanggan->alamat = $request->alamat;
+        $pelanggan->no_hp = $request->no;
+        $pelanggan->save();
+        return redirect('pelanggan');
     }
 
     /**
@@ -82,6 +93,8 @@ class PelangganController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pelanggan = Pelanggann::findOrFail($id);
+        $pelanggan->delete();
+        return redirect('pelanggan');
     }
 }

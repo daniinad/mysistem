@@ -38,6 +38,15 @@
 					</div>
 
 					<div class="form-group">
+						<label class="control-lable">Nama Pelanggan</label>
+						<select class="form-control" name="nap">
+							@foreach($pelanggan as $data)
+							<option value="{{$data->id}}">{{$data->nama}}</option>
+							@endforeach
+						</select>
+					</div>
+
+					<div class="form-group">
 						<button type="submit" class="btn btn-success">Simpan</button>
 						<button type="reset" class="btn btn-danger">Reset</button>
 					</div>

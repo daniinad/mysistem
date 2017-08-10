@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Pelanggan;
-use App\Bahan;
+use App\Pelanggann;
+use App\Bahann;
 use Illuminate\Http\Request;
 
 class BahanController extends Controller
@@ -15,7 +15,7 @@ class BahanController extends Controller
      */
     public function index()
     {
-        $bahan = Bahan::all();
+        $bahan = Bahann::all();
         return view ('bahan.index',compact('bahan'));
     }
 
@@ -26,8 +26,8 @@ class BahanController extends Controller
      */
     public function create()
     {
-        $bahan= Bahan::all();
-        $pelanggan= Pelanggan::all();
+        $bahan= Bahann::all();
+        $pelanggan= Pelanggann::all();
         return view('bahan.create',compact('bahan','pelanggan'));
     }
 
@@ -39,7 +39,8 @@ class BahanController extends Controller
      */
     public function store(Request $request)
     {
-        $bahan = new Bahan;
+        $bahan = new Bahann;
+        $bahan->id_pelanggann = $request->nap;
         $bahan->nama = $request->nama;
         $bahan->merk = $request->merk;
         $bahan->ukuran = $request->ukuran;
@@ -79,8 +80,8 @@ class BahanController extends Controller
      */
     public function edit($id)
     {
-         $bahan = Bahan::findOrFail($id);
-         $pelanggan = Pelanggan::all();
+         $bahan = Bahann::findOrFail($id);
+         $pelanggan = Pelanggann::all();
         return view('bahan.edit',compact('bahan','pelanggan'));
     }
 
@@ -93,7 +94,8 @@ class BahanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $bahan = Bahan::findOrFail($id);
+        $bahan = Bahann::findOrFail($id);
+        $bahan->id_pelanggann = $request->nap;
         $bahan->nama = $request->nama;
         $bahan->merk = $request->merk;
         $bahan->ukuran = $request->ukuran;
@@ -121,7 +123,7 @@ class BahanController extends Controller
      */
     public function destroy($id)
     {
-       $bahan = Bahan::findOrFail($id);
+       $bahan = Bahann::findOrFail($id);
         $bahan->delete();
         return redirect('bahan');
     }

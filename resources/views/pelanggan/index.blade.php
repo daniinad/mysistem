@@ -3,6 +3,7 @@
 
 <div class="container">
 <div class="row">
+<div class="col-md-10 col-md-offset-2">
     <center><h1>Data Pelanggan</h1></center>
     <div class="panel panel-primary">
         <div class="panel-heading">Data Pelanggan
@@ -16,7 +17,7 @@
                         <tr>
                             <th>Nama</th>
                             <th>Alamat</th>
-                            <th>no_hp</th>
+                            <th>No_Hp</th>
                             <th>Barang Yang Dibeli</th>
                             <th>Gambar</th>
                             <th colspan="2">Action</th>
@@ -28,8 +29,8 @@
                             <td>{{$data->nama}}</td>
                             <td>{{$data->alamat}}</td>
                             <td>{{$data->no_hp}}</td>
-                            <td>{{$data->bahan->nama}}</td>
-                            <td>{{$data->bahan->gambar}}</td>
+                            <td>{{$data->bahans->nama}}</td>
+                            <td>{{$data->bahans->gambar}}</td>
 
                            <td><img src="{{asset('/img/'.$data->gambar.'')}}" height="100px" width="100px"></td>
                     

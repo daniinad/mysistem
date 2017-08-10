@@ -20,6 +20,7 @@
                             <th>Ukuran</th>
                             <th>Harga</th>
                             <th>Gambar</th>
+                            <th>Nama Pelanggan</th>
                             <th colspan="2">Action</th>
                         </tr>
                     </thead>
@@ -27,6 +28,7 @@
                         @foreach($bahan as $data)
                         <tr>
                             <td>{{$data->nama}}</td>
+                            <td>{{$data->pelanggan->nama}}</td>
                             <td>{{$data->merk}}</td>
                             <td>{{$data->ukuran}}</td>
                             <td>{{$data->harga}}</td>
