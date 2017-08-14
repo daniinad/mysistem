@@ -4,9 +4,9 @@
 <div class="container">
 <div class="row">
 <div class="col-md-10 col-md-offset-2">
-    <center><h1>Data Pelanggan</h1></center>
+    <center><h1>Data Pembeli</h1></center>
     <div class="panel panel-primary">
-        <div class="panel-heading">Data Pelanggan
+        <div class="panel-heading">Data Pembeli
         <div class="panel-title pull pull-right">
             <a href="pelanggan/create">Tambah Data</a></div>
             </div>
@@ -18,21 +18,17 @@
                             <th>Nama</th>
                             <th>Alamat</th>
                             <th>No_Hp</th>
-                            <th>Barang Yang Dibeli</th>
-                            <th>Gambar</th>
+
                             <th colspan="2">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($pelanggan as $data)
                         <tr>
-                            <td>{{$data->nama}}</td>
+                            <td>{{$data->name}}</td>
                             <td>{{$data->alamat}}</td>
                             <td>{{$data->no_hp}}</td>
-                            <td>{{$data->bahans->nama}}</td>
-                            <td>{{$data->bahans->gambar}}</td>
-
-                           <td><img src="{{asset('/img/'.$data->gambar.'')}}" height="100px" width="100px"></td>
+                           
                     
                             <td>
                                 <a class="btn btn-warning" href="pelanggan/{{$data->id}}/edit">Edit</a></td>

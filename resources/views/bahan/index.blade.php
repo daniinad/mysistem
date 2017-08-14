@@ -4,9 +4,9 @@
 <div class="container">
 <div class="row">
   <div class="col-md-10 col-md-offset-2">
-    <center><h1>Data Bahan</h1></center>
+    <center><h1>Data Barang</h1></center>
     <div class="panel panel-primary">
-        <div class="panel-heading">Data Bahan
+        <div class="panel-heading">Data Barang
         <div class="panel-title pull pull-right">
             <a href="bahan/create">Tambah Data</a></div>
             </div>
@@ -15,12 +15,12 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Nama</th>
+                            <th>Nama Barang</th>
                             <th>Merk</th>
                             <th>Ukuran</th>
                             <th>Harga</th>
                             <th>Gambar</th>
-                            <th>Nama Pelanggan</th>
+                            <th>Nama Pembeli</th>
                             <th colspan="2">Action</th>
                         </tr>
                     </thead>
@@ -28,12 +28,11 @@
                         @foreach($bahan as $data)
                         <tr>
                             <td>{{$data->nama}}</td>
-                            <td>{{$data->pelanggan->nama}}</td>
                             <td>{{$data->merk}}</td>
                             <td>{{$data->ukuran}}</td>
                             <td>{{$data->harga}}</td>
-
                            <td><img src="{{asset('/img/'.$data->gambar.'')}}" height="100px" width="100px"></td>
+                           <td>{{$data->pelanggans->name}}</td>
                     
                             <td>
                                 <a class="btn btn-warning" href="bahan/{{$data->id}}/edit">Edit</a></td>

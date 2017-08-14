@@ -2,9 +2,9 @@
 @section('content')
 <div class="container">
 <div class="row">
-	<center><h1>Data Pelanggan</h1></center>
+	<center><h1>Data Pembeli</h1></center>
 	<div class="panel panel-primary">
-		<div class="panel-heading">Data Pelanggan
+		<div class="panel-heading">Data Pembeli
 		<div class="panel-title pull pull-right">
 			<a href="{{ URL::previous() }}">Kembali</a></div>
 			</div>

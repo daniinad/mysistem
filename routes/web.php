@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/user', function () {
+    return view('keren.master');
+});
+Route::resource('user','KontakController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -22,6 +27,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware'=>['auth']],function() {
 Route::resource('bahan','BahanController');
 Route::resource('pelanggan','PelangganController');
+
 });
 
 

@@ -23,10 +23,10 @@
     <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
         <div class="profile-sidebar">
             <div class="profile-userpic">
-                <img src="{{ asset('img/DSCF2086.jpg')}}" class="img-responsive" alt="">
+                <img src="{{ asset('img/admin.png')}}" class="img-responsive" alt="">
             </div>
             <div class="profile-usertitle">
-                <div class="profile-usertitle-name">Username</div>
+                <div class="profile-usertitle-name">Admin</div>
                 <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
             </div>
             <div class="clear"></div>
@@ -34,17 +34,17 @@
         
         </form>
         <ul class="nav menu">
-            <li><a href="{{ url('/home')}}"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
-            <li><a href="#"><em class="fa fa-calendar">&nbsp;</em> zzz </a></li>
+            <li><a href="{{ url('/home')}}"><em class="fa fa-dashboard"></em> Dashboard</a></li>
+            <li><a href="{{ url('/user')}}"><em class="glyphicon glyphicon-log-in"></em> Web</a></li>
             <li class="parent "><a data-toggle="collapse" href="#sub-item-1">
                 <em class="fa fa-navicon">&nbsp;</em> Table <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
                 </a>
                 <ul class="children collapse" id="sub-item-1">
                     <li><a href="{{ route('bahan.index')}}">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Bahan
+                        <span class="fa fa-arrow-right">&nbsp;</span> Barang
                     </a></li>
                     <li><a href="{{ route('pelanggan.index')}}">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Pelanggan
+                        <span class="fa fa-arrow-right">&nbsp;</span> Pembeli
                     </a></li>
                     <li><a class="" href="#">
                         <span class="fa fa-arrow-right">&nbsp;</span> Transaksi

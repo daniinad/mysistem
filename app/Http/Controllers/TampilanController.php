@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Pelanggann;
-use App\Bahann;
 use Illuminate\Http\Request;
+use App\Bahann;
 
-class PelangganController extends Controller
+class TampilanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class PelangganController extends Controller
      */
     public function index()
     {
-        $pelanggan = Pelanggann::with('bahans')->get();
-        return view ('pelanggan.index',compact('pelanggan','bahan'));
+        $bahan = Bahann::all();
+        return view ('keren.spek',compact('bahan'));
     }
 
     /**
@@ -26,7 +25,7 @@ class PelangganController extends Controller
      */
     public function create()
     {
-        return view('pelanggan.create');
+        //
     }
 
     /**
@@ -37,12 +36,7 @@ class PelangganController extends Controller
      */
     public function store(Request $request)
     {
-        $pelanggan = new Pelanggann;
-        $pelanggan->name = $request->nama;
-        $pelanggan->alamat = $request->alamat;
-        $pelanggan->no_hp = $request->no;
-        $pelanggan->save();
-        return redirect('pelanggan');
+        //
     }
 
     /**
@@ -64,8 +58,7 @@ class PelangganController extends Controller
      */
     public function edit($id)
     {
-        $pelanggan = Pelanggann::findOrFail($id);
-        return view ('pelanggan.edit',compact('pelanggan'));
+        //
     }
 
     /**
@@ -77,12 +70,7 @@ class PelangganController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pelanggan = Pelanggann::findOrFail($id);
-        $pelanggan->name = $request->nama;
-        $pelanggan->alamat = $request->alamat;
-        $pelanggan->no_hp = $request->no;
-        $pelanggan->save();
-        return redirect('pelanggan');
+        //
     }
 
     /**
@@ -93,8 +81,6 @@ class PelangganController extends Controller
      */
     public function destroy($id)
     {
-        $pelanggan = Pelanggann::findOrFail($id);
-        $pelanggan->delete();
-        return redirect('pelanggan');
+        //
     }
 }

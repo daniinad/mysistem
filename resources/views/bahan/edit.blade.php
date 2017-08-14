@@ -2,9 +2,9 @@
 @section('content')
 <div class="container">
 <div class="row">
-	<center><h1>Data Bahan</h1></center>
+	<center><h1>Data Barang</h1></center>
 	<div class="panel panel-primary">
-		<div class="panel-heading">Data Bahan
+		<div class="panel-heading">Data Barang
 		<div class="panel-title pull pull-right">
 			<a href="{{ URL::previous() }}">Kembali</a></div>
 			</div>
@@ -15,7 +15,7 @@
 			<input type="hidden" name="_token" value="{{csrf_token() }}">
 
 					<div class="form-group">
-						<label class="control-lable">Nama</label>
+						<label class="control-lable">Nama Barang</label>
 						<input type="text" name="nama" class="form-control" value="{{$bahan->nama}}" required>
 					</div>
 
@@ -37,6 +37,15 @@
 					<div class="form-group">
 						<label class="control-lable">Gambar</label>
 						<input type="file" name="gambar" value="{{$bahan->gambar}}" required>
+					</div>
+
+					<div class="form-group">
+						<label class="control-lable">Nama Pembeli</label>
+						<select class="form-control" name="nap">
+							@foreach($pelanggan as $data)
+							<option value="{{$data->id}}">{{$data->name}}</option>
+							@endforeach
+						</select>
 					</div>
 
 					<div class="form-group">

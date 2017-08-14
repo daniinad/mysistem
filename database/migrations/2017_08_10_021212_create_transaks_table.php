@@ -17,9 +17,6 @@ class CreateTransaksTable extends Migration
             $table->increments('id');
             $table->integer('id_bahann')->unsigned();
             $table->integer('id_pelanggann')->unsigned();
-            $table->string('merk');
-            $table->string('ukuran');
-            $table->string('harga');
             $table->timestamps();
 
             $table->foreign('id_pelanggann')->references('id')->on('pelangganns')

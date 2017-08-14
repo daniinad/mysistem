@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Pelanggann;
-use App\Bahann;
 use Illuminate\Http\Request;
+use App\Kontak;
 
-class PelangganController extends Controller
+class KontakController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class PelangganController extends Controller
      */
     public function index()
     {
-        $pelanggan = Pelanggann::with('bahans')->get();
-        return view ('pelanggan.index',compact('pelanggan','bahan'));
+         $kontak = Kontak::all();
+        return view ('keren.index',compact('kontak'));
     }
 
     /**
@@ -26,7 +25,7 @@ class PelangganController extends Controller
      */
     public function create()
     {
-        return view('pelanggan.create');
+        return view('keren.create');
     }
 
     /**
@@ -37,12 +36,13 @@ class PelangganController extends Controller
      */
     public function store(Request $request)
     {
-        $pelanggan = new Pelanggann;
-        $pelanggan->name = $request->nama;
-        $pelanggan->alamat = $request->alamat;
-        $pelanggan->no_hp = $request->no;
-        $pelanggan->save();
-        return redirect('pelanggan');
+        $kontak = new Kontak;
+        $kontak->name = $request->nama;
+        $kontak->email = $request->email;
+        $kontak->phone = $request->no;
+        $kontak->isi = $request->isi;
+        $kontak->save();
+        return redirect('user');
     }
 
     /**
@@ -64,8 +64,7 @@ class PelangganController extends Controller
      */
     public function edit($id)
     {
-        $pelanggan = Pelanggann::findOrFail($id);
-        return view ('pelanggan.edit',compact('pelanggan'));
+        //
     }
 
     /**
@@ -77,12 +76,7 @@ class PelangganController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pelanggan = Pelanggann::findOrFail($id);
-        $pelanggan->name = $request->nama;
-        $pelanggan->alamat = $request->alamat;
-        $pelanggan->no_hp = $request->no;
-        $pelanggan->save();
-        return redirect('pelanggan');
+        //
     }
 
     /**
@@ -93,8 +87,6 @@ class PelangganController extends Controller
      */
     public function destroy($id)
     {
-        $pelanggan = Pelanggann::findOrFail($id);
-        $pelanggan->delete();
-        return redirect('pelanggan');
+        //
     }
 }

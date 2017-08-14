@@ -2,9 +2,9 @@
 @section('content')
 <div class="container">
 <div class="row">
-	<center><h1>Data Bahan</h1></center>
+	<center><h1>Data Barang</h1></center>
 	<div class="panel panel-primary">
-		<div class="panel-heading">Data Bahan
+		<div class="panel-heading">Data Barang
 		<div class="panel-title pull pull-right">
 			<a href="{{ URL::previous() }}">Kembali</a></div>
 			</div>
@@ -13,12 +13,12 @@
 				<form action="{{route('bahan.store')}}" method="post" enctype="multipart/form-data">
 					{{csrf_field()}}
 					<div class="form-group">
-						<label class="control-lable">Nama</label>
+						<label class="control-lable">Nama Barang</label>
 						<input type="text" name="nama" class="form-control" required>
 					</div>
 
 					<div class="form-group">
-						<label class="control-lable">Mekr</label>
+						<label class="control-lable">Merk</label>
 						<input type="text" name="merk" class="form-control" required>
 					</div>
 
@@ -38,10 +38,10 @@
 					</div>
 
 					<div class="form-group">
-						<label class="control-lable">Nama Pelanggan</label>
+						<label class="control-lable">Nama Pembeli</label>
 						<select class="form-control" name="nap">
 							@foreach($pelanggan as $data)
-							<option value="{{$data->id}}">{{$data->nama}}</option>
+							<option value="{{$data->id}}">{{$data->name}}</option>
 							@endforeach
 						</select>
 					</div>

@@ -13,6 +13,10 @@ class Bahann extends Model
 
     public function pelanggans() 
     {
-    	return $this->belongTo('App\Pelanggann','id_pelanggann');
+    	return $this->belongsTo('App\Pelanggann','id_pelanggann');
     }
+    public function transaks()
+	{
+		return $this->belongsTo('App\transak','id_bahan','id_pelanggann');
+	}
 }
