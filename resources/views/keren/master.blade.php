@@ -2,14 +2,17 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Sistem Informasi Bahan Bangunan</title>
+    <title>Toko Bahan Bangunan</title>
+
+    <link rel="icon" href="{{ asset('img/coba.png')}}" type="img/png">
+
     <meta name="description" content="This is a free Bootstrap landing page theme created for BootstrapZero. Feature video background and one page design." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Codeply">
-    <link rel="stylesheet" href="assetss/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assetss/css/animate.min.css" />
-    <link rel="stylesheet" href="assetss/css/ionicons.min.css" />
-    <link rel="stylesheet" href="assetss/css/styles.css" />
+    <link rel="stylesheet" href="/assetss/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assetss/css/animate.min.css" />
+    <link rel="stylesheet" href="/assetss/css/ionicons.min.css" />
+    <link rel="stylesheet" href="/assetss/css/styles.css" />
   </head>
   <body>
     <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
@@ -21,7 +24,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#first"><i class="ion-ios-analytics-outline"></i> Informasi Bahan Bangunan</a>
+                <a class="navbar-brand page-scroll" href="#first"><i class="ion-ios-analytics-outline"></i> Toko Bahan Bangunan</a>
             </div>
             <div class="navbar-collapse collapse" id="bs-navbar">
                 <ul class="nav navbar-nav">
@@ -29,13 +32,13 @@
                         <a class="page-scroll" href="#one">Intro</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#two">Highlights</a>
+                        <a class="page-scroll" href="#two">Keuntungan</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#three">Spesifikasi</a>
+                        <a class="page-scroll" href="#three">Jenis</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#four">Features</a>
+                        <a class="page-scroll" href="#four">Spesifikasi</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#last">Contact</a>
@@ -53,7 +56,7 @@
         <div class="header-content">
             <div class="inner">
                 <h1 class="cursive">Selamat Datang</h1>
-                <h4>Diweb Kami Anda Senang Kamipun Senang</h4>
+                <h4>Diweb Kami, Anda Senang Kamipun Senang</h4>
                 <hr>
                 
             </div>
@@ -64,12 +67,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
-                    <h2 class="margin-top-0 text-primary">Informasi Bahan Bangunan</h2>
+                    <h2 class="margin-top-0 text-primary">Toko Bahan Bangunan</h2>
                     <br>
                     <p class="text-faded">
-                        Pada web ini saya akan memberi tahu tentang informasi-informasi
-                        pada bahan bangunan yang ada disini,dimulai dari namanya,merknya,
-                        ukuran-ukurannya,harga dari yang termurah sampai yang lumayan mahal.  
+                        Pada web ini kita akan menginformasikan barang - barang
+                        apa saja yang ada di toko kita  
                     </p>
                     
                 </div>
@@ -80,7 +82,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="margin-top-0 text-primary">Kerennya Website</h2>
+                    <h2 class="margin-top-0 text-primary">Barang Yang Berkualitas Tinggi</h2>
                     <hr class="primary">
                 </div>
             </div>
@@ -90,21 +92,21 @@
                 <div class="col-lg-4 col-md-4 text-center">
                     <div class="feature">
                         <i class="icon-lg ion-android-laptop wow fadeIn" data-wow-delay=".3s"></i>
-                        <h3>Responsive</h3>
+                        <h3>Kuat</h3>
                         
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 text-center">
                     <div class="feature">
                         <i class="icon-lg ion-social-sass wow fadeInUp" data-wow-delay=".2s"></i>
-                        <h3>Customizable</h3>
+                        <h3>Asli</h3>
                         
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 text-center">
                     <div class="feature">
                         <i class="icon-lg ion-ios-star-outline wow fadeIn" data-wow-delay=".3s"></i>
-                        <h3>Consistent</h3>
+                        <h3>Bahan Pilihan</h3>
                         
                     </div>
                 </div>
@@ -113,7 +115,30 @@
     </section>
     <section id="three" class="no-padding">
    <!-- spek -->
-   @include('keren.spek')
+   <div class="col-lg-12 text-center">
+                    <h2 class="margin-top-0 text-primary">Beberapa Jenis Bahan Bangunan</h2>
+                    <hr class="primary">
+                </div>
+
+                @foreach($barang as $data)
+        <div class="container-fluid">
+            <div class="row no-gutter">
+                <div class="col-lg-4 col-sm-6">
+                   <center><th><h2> {{$data->nama}}</h2></th></center>
+                    <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="{{asset('/img/'.$data->gambar.'')}}">
+                        <img src="{{asset('/img/'.$data->gambar.'')}}" class="img-responsive" alt="Image 1"  height="555px" width="555px">
+                        
+                        <div class="gallery-box-caption">
+                            <div class="gallery-box-content">
+                                <div>
+                                    <i class="icon-lg ion-ios-search"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                @endforeach
+                
    <!-- end spek -->
                 
                             </div>
@@ -123,100 +148,43 @@
             </div>
         </div>
     </section>
+
     <section class="container-fluid" id="four">
-        <div class="row">
-            <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-                <h2 class="text-center text-primary">Features</h2>
-                <hr>
-                <div class="media wow fadeInRight">
-                    <h3>Simple</h3>
-                    <div class="media-body media-middle">
-                    
-                    </div>
-                    <div class="media-right">
-                        <i class="icon-lg ion-ios-bolt-outline"></i>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="margin-top-0 text-primary">Spesifikasi Barang</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                @foreach($barang as $data)
+                <div class="col-lg-4 col-md-4 text-center">
+                    <div class="feature">
+                        
+                        <h3>{{$data->nama}}</h3>
+                        <h3>Merk = {{$data->merk}}</h3>
+                        <h3>Jumlah = {{$data->jumlah}}</h3>
+                        <h3>Harga = {{$data->harga}}</h3>
+                        <hr>
+                        
                     </div>
                 </div>
-                <hr>
-                <div class="media wow fadeIn">
-                    <h3>Free</h3>
-                    <div class="media-left">
-                    <i class="icon-lg ion-ios-cloud-download-outline"></i></a>
-                    </div>
-                    <div class="media-body media-middle">
-                    
-                    </div>
-                </div>
-                <hr>
-                <div class="media wow fadeInRight">
-                    <h3>Unique</h3>
-                    <div class="media-body media-middle">
-                    
-                    </div>
-                    <div class="media-right">
-                        <i class="icon-lg ion-ios-snowy"></i>
-                    </div>
-                </div>
-                <hr>
-                <div class="media wow fadeIn">
-                    <h3>Popular</h3>
-                    <div class="media-left">
-                        <i class="icon-lg ion-ios-heart-outline"></i>
-                    </div>
-                    <div class="media-body media-middle">
-                    
-                    </div>
-                </div>
-                <hr>
-                <div class="media wow fadeInRight">
-                    <h3>Tested</h3>
-                    <div class="media-body media-middle">
-                    
-                    </div>
-                    <div class="media-right">
-                        <i class="icon-lg ion-ios-flask-outline"></i>
-                    </div>
-                </div>
+                
+                @endforeach
             </div>
         </div>
     </section>
-    <aside class="bg-dark">
-        <div class="container text-center">
-            <div class="call-to-action">
-                <h2 class="text-primary">Get Started</h2>
-                
-            </div>
-            <br>
-            <hr/>
-            <br>
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1">
-                    <div class="row">
-                        <h6 class="wide-space text-center"></h6>
-                        <div class="col-sm-3 col-xs-6 text-center">
-                            <i class="icon-lg ion-social-html5-outline" title="html 5"></i>
-                        </div>
-                        <div class="col-sm-3 col-xs-6 text-center">
-                            <i class="icon-lg ion-social-sass" title="sass"></i>
-                        </div>
-                        <div class="col-sm-3 col-xs-6 text-center">
-                            <i class="icon-lg ion-social-javascript-outline" title="javascript"></i>
-                        </div>
-                        <div class="col-sm-3 col-xs-6 text-center">
-                            <i class="icon-lg ion-social-css3-outline" title="css 3"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </aside>
+    
     <section id="last">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="margin-top-0 wow fadeIn">Kirim Pesan Anda</h2>
                     <hr class="primary">
-                    <p>Isi formulir di bawah ini dan kami akan menghubungi Anda sesegera mungkin.</p>
+                    <p>Isi formulir di bawah ini dan kami akan menghubungi Anda segera mungkin.</p>
                 </div>
                 
                 <!-- isi -->
@@ -315,10 +283,10 @@
         </div>
     </div>
     <!--scripts loaded here -->
-    <script src="assetss/js/jquery.min.js"></script>
-    <script src="assetss/js/bootstrap.min.js"></script>
-    <script src="assetss/js/jquery.easing.min.js"></script>
-    <script src="assetss/js/wow.js"></script>
-    <script src="assetss/js/scripts.js"></script>
+    <script src="/assetss/js/jquery.min.js"></script>
+    <script src="/assetss/js/bootstrap.min.js"></script>
+    <script src="/assetss/js/jquery.easing.min.js"></script>
+    <script src="/assetss/js/wow.js"></script>
+    <script src="/assetss/js/scripts.js"></script>
   </body>
 </html>

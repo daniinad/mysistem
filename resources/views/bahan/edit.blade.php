@@ -1,7 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.bsb')
 @section('content')
 <div class="container">
 <div class="row">
+<div class="col-md-10 col-md-offset-2">
 	<center><h1>Data Barang</h1></center>
 	<div class="panel panel-primary">
 		<div class="panel-heading">Data Barang
@@ -39,8 +40,8 @@
 						<input type="file" name="gambar" value="{{$bahan->gambar}}" required>
 					</div>
 
-					<div class="form-group">
-						<label class="control-lable">Nama Pembeli</label>
+					<div class="form-group" hidden="">
+						<label class="control-lable">Nama Pelanggan</label>
 						<select class="form-control" name="nap">
 							@foreach($pelanggan as $data)
 							<option value="{{$data->id}}">{{$data->name}}</option>

@@ -1,4 +1,4 @@
-@extends('layouts.mastah')
+@extends('layouts.bsb')
 @section('content')
 
 <div class="container">
@@ -20,7 +20,7 @@
                             <th>Ukuran</th>
                             <th>Harga</th>
                             <th>Gambar</th>
-                            <th>Nama Pembeli</th>
+                           
                             <th colspan="2">Action</th>
                         </tr>
                     </thead>
@@ -32,7 +32,7 @@
                             <td>{{$data->ukuran}}</td>
                             <td>{{$data->harga}}</td>
                            <td><img src="{{asset('/img/'.$data->gambar.'')}}" height="100px" width="100px"></td>
-                           <td>{{$data->pelanggans->name}}</td>
+                           
                     
                             <td>
                                 <a class="btn btn-warning" href="bahan/{{$data->id}}/edit">Edit</a></td>

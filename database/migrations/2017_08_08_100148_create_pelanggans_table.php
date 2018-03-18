@@ -15,14 +15,13 @@ class CreatePelanggansTable extends Migration
     {
         Schema::create('pelanggans', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_bahan')->unsigned();
+            
             $table->string('nama');
             $table->text('alamat');
             $table->string('no_hp');
             $table->timestamps();
 
-            $table->foreign('id_bahan')->references('id')->on('bahans')
-            ->onUpdate('cascade')->onDelete('cascade');
+            
         });
     }
 

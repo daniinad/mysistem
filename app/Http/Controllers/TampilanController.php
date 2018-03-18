@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Bahann;
+use App\Barang;
 
 class TampilanController extends Controller
 {
@@ -14,8 +14,8 @@ class TampilanController extends Controller
      */
     public function index()
     {
-        $bahan = Bahann::all();
-        return view ('keren.spek',compact('bahan'));
+        $a = Barang::all();
+        return view ('keren.master',compact('a'));
     }
 
     /**

@@ -72,4 +72,8 @@ class RegisterController extends Controller
         $user->attachRole($memberRole);
         return $user;
     }
+
+    public function showRegistrationForm(){
+        return view('errors.403');
+    }
 }

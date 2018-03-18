@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sistem Informasi Bahan Bangunan</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/datepicker3.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/datepicker3.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
     
     <!--Custom Font-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -34,7 +34,7 @@
         
         </form>
         <ul class="nav menu">
-            <li><a href="{{ url('/home')}}"><em class="fa fa-dashboard"></em> Dashboard</a></li>
+            <li><a href="{{ url('/')}}"><em class="fa fa-dashboard"></em> Dashboard</a></li>
             <li><a href="{{ url('/user')}}"><em class="glyphicon glyphicon-log-in"></em> Web</a></li>
             <li class="parent "><a data-toggle="collapse" href="#sub-item-1">
                 <em class="fa fa-navicon">&nbsp;</em> Table <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
@@ -46,7 +46,7 @@
                     <li><a href="{{ route('pelanggan.index')}}">
                         <span class="fa fa-arrow-right">&nbsp;</span> Pembeli
                     </a></li>
-                    <li><a class="" href="#">
+                    <li><a href="{{ route('transaksi.index')}}">
                         <span class="fa fa-arrow-right">&nbsp;</span> Transaksi
                     </a></li>
                 </ul>
@@ -75,14 +75,14 @@
         
        
     
-    <script src="js/jquery-1.11.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/chart.min.js"></script>
-    <script src="js/chart-data.js"></script>
-    <script src="js/easypiechart.js"></script>
-    <script src="js/easypiechart-data.js"></script>
-    <script src="js/bootstrap-datepicker.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/chart.min.js"></script>
+    <script src="/js/chart-data.js"></script>
+    <script src="/js/easypiechart.js"></script>
+    <script src="/js/easypiechart-data.js"></script>
+    <script src="/js/bootstrap-datepicker.js"></script>
+    <script src="/js/custom.js"></script>
     
          @yield('scripts')
 </body>

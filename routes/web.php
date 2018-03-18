@@ -22,12 +22,17 @@ Route::resource('user','KontakController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
-Route::group(['middleware'=>['auth']],function() {
-Route::resource('bahan','BahanController');
-Route::resource('pelanggan','PelangganController');
 
+Route::resource('barang','BarangController');
+Route::get('user','BarangController@aa');
+Route::resource('pembeli','PembeliController');
+
+Route::group(['middleware'=>'cors'],function(){
+	Route::get('/listdata','ApiController@listdata');
 });
+
+
 
 
